@@ -5,20 +5,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Ola Pessoal, Mbora trabalhar</h1>
+      <p>Esta é apenas a base para implementarmos os codigos do react-typescript.</p>
+      <p>a base para a <b><a href="https://jasoftware.pythonanywhere.com/">API</a></b> tambem ja foi criada</p>
     </div>
   );
 }
