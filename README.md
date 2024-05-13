@@ -55,6 +55,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 
-![](public/New Wireframe 1.png)
+![](public/Home_wireframe.png)
 
-![Web 1920 – 1](public/Web 1920 – 1.png)
+![Web 1920 – 1](public/home_template.png)
