@@ -58,3 +58,26 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ![](public/Home_wireframe.png)
 
 ![Web 1920 – 1](public/home_template.png)
+
+
+texto original do GlobalStyles
+
+```tsx
+import { createGlobalStyle } from 'styled-components';
+// import AristaProFont from './Arista-Pro/Arista-Pro-Bold-trial.ttf'; 
+
+const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-family: 'Arista Pro';
+    src: url(${AristaProFont}) format('truetype'); // Verifique se o formato corresponde ao arquivo da fonte
+    font-weight: normal;
+    font-style: normal;
+    /* Outras propriedades conforme necessário, como font-display */
+  }
+
+  /* Estilos globais adicionais */
+`;
+
+export default GlobalStyles;
+
+```
