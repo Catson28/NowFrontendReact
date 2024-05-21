@@ -1,16 +1,15 @@
-import styled from 'styled-components';
-import Header from "../partials/Header";
-import SectionCreateSolicit from "../partials/SectionCreateSolicit";
-import SectionTopics from "../partials/SectionTopics";
-import SectionMVV from "../partials/SectionMVV";
-import SectionTeam from "../partials/SectionTeam";
-import ServiceDevelopment from "../partials/ServiceDevelopment";
-import ServiceMediaManagement from "../partials/ServiceMediaManagement";
-import SectionPortfolio from "../partials/SectionPortfolio";
-import Testimonial from "../partials/Testimonial";
-import Contact from "../partials/Contact";
-import Footer from "../partials/Footer";
-import CookieComponent from "../partials/CookieComponent";
+import { ChangeEvent, FormEvent, useState } from 'react'
+import styled, { ThemeProvider } from 'styled-components'
+
+
+import Navbar from '../../partials/Navbar'
+import { theme } from '../../../services/styles/Theme'
+import { Container, Flex, GlobalStyles, Box } from '../../../services/styles/Global'
+import SectionRegister from "../../partials/SectionRegister";
+import SectionServico from "../../partials/SectionServico";
+import SectionMVV from "../../partials/SectionMVV";
+
+
 
 
 const BodyStyles = styled.body`
@@ -18,7 +17,6 @@ const BodyStyles = styled.body`
 //   background-size: cover;
   background-repeat: no-repeat;
   background-position: top 0 right 0;
-  font-family: Arial, sans-serif;
   color: #1b2f5a;
   margin: 0;
   padding: 0;
@@ -26,24 +24,26 @@ const BodyStyles = styled.body`
   box-sizing: border-box;
 `;
 
+const HomePage = () => {  
+  const [heightHeader, setHeightHeader]  = useState<number>(0);
 
-const HomePage = () => {
-  return(
+  const handleHeightHeader = (value: number) => {
+    setHeightHeader(value);
+  };
+
+
+
+  return (
+    <ThemeProvider theme={theme}>
+        <GlobalStyles />
         <BodyStyles>
-            <Header/>
-            <SectionCreateSolicit/>
-            <SectionTopics/>
+            <Navbar  homeHeader={handleHeightHeader} />
+            <SectionRegister homeheightHeader={heightHeader}/>
+            <SectionServico/>
             <SectionMVV/>
-            <SectionTeam/>
-            <ServiceDevelopment/>
-            <ServiceMediaManagement/>
-            <SectionPortfolio/>
-            <Testimonial/>
-            <Contact/>
-            <Footer/>  
-            <CookieComponent/>       
         </BodyStyles>
-    ) 
-};
+    </ThemeProvider>
+  )
+}
 
-export default HomePage;
+export default HomePage

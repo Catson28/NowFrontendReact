@@ -10,22 +10,19 @@ Aqui estão os links relevantes para o projeto:
 
 Estes links fornecem acesso aos diferentes aspectos do projeto, incluindo o código-fonte, o executável do frontend, o domínio onde o frontend pode ser visualizado em qualquer dispositivo e a API para integração com outros sistemas.
 
-## Available Scripts
+## Fontes de Inspiracao
 
-In the project directory, you can run:
+[booking](https://www.booking.com/index.pt-pt.html?label=gen173nr-1BCAEoggI46AdIM1gEaAmIAQGYAR-4ARfIAQzYAQHoAQGIAgGoAgO4ApHd97EGwAIB0gIkOGVlODdkOGUtZGE4Mi00NDA2LWFlYTUtMDQxMDBlMjhkNDFj2AIF4AIB&sid=f9b1c18ada902250a1b8c240d6fd1a2d&keep_landing=1&sb_price_type=total&)
+
 
 ### `npm start`
+
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 

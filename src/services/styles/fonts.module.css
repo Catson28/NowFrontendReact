@@ -1,0 +1,195 @@
+/* woff2 : Super Modern Browsers */
+/* woff :Modern Browsers */
+
+@font-face {
+  font-family: 'Anek Malayalam';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../assets/fonts/anek-malayalam-v4-malayalam-100.woff2')
+      format('woff2'),
+    url('../assets/fonts/anek-malayalam-v4-malayalam-100.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anek Malayalam';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../assets/fonts/anek-malayalam-v4-malayalam-200.woff2')
+      format('woff2'),
+    url('../assets/fonts/anek-malayalam-v4-malayalam-200.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anek Malayalam';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/anek-malayalam-v4-malayalam-300.woff2')
+      format('woff2'),
+    url('../assets/fonts/anek-malayalam-v4-malayalam-300.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anek Malayalam';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/anek-malayalam-v4-malayalam-400.woff2')
+      format('woff2'),
+    url('../assets/fonts/anek-malayalam-v4-malayalam-400.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anek Malayalam';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../assets/fonts/anek-malayalam-v4-malayalam-500.woff2')
+      format('woff2'),
+    url('../assets/fonts/anek-malayalam-v4-malayalam-500.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anek Malayalam';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../assets/fonts/anek-malayalam-v4-malayalam-600.woff2')
+      format('woff2'),
+    url('../assets/fonts/anek-malayalam-v4-malayalam-600.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anek Malayalam';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/anek-malayalam-v4-malayalam-700.woff2')
+      format('woff2'),
+    url('../assets/fonts/anek-malayalam-v4-malayalam-700.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anek Malayalam';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../assets/fonts/anek-malayalam-v4-malayalam-800.woff2')
+      format('woff2'),
+    url('../assets/fonts/anek-malayalam-v4-malayalam-800.woff') format('woff');
+  font-display: swap;
+}
+
+
+/* Arista pro */
+
+
+@font-face {
+  font-family: 'Arista Pro';
+  font-style: normal;
+  font-weight: 400; /* Normal weight */
+  src: url('../assets/fonts/arista_pro/Arista-Pro-Light-trial.ttf') format('truetype');
+  /* src: url('../assets/fonts/arista_pro/Arista-Pro-Light-trial.ttf') format('truetype'); */
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arista Pro';
+  font-style: normal;
+  font-weight: 700; /* Bold weight */
+  src: url('../assets/fonts/arista_pro/Arista-Pro-Bold-trial.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arista Pro';
+  font-style: normal;
+  font-weight: 800; /* Extra Bold weight */
+  src: url('../assets/fonts/arista_pro/Arista-Pro-Fat-trial.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arista Pro Alternate';
+  font-style: normal;
+  font-weight: 400; /* Normal weight */
+  src: url('../assets/fonts/arista_pro/Arista-Pro-Alternate-Light-trial.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arista Pro Alternate';
+  font-style: normal;
+  font-weight: 700; /* Bold weight */
+  src: url('../assets/fonts/arista_pro/Arista-Pro-Alternate-Bold-trial.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arista Pro Alternate';
+  font-style: normal;
+  font-weight: 800; /* Extra Bold weight */
+  src: url('../assets/fonts/arista_pro/Arista-Pro-Alternate-Fat-trial.ttf') format('truetype');
+  font-display: swap;
+}
+
+
+/* Quicksand */
+
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400; /* Normal weight */
+  src: url('../assets/fonts/quicksand/Quicksand_Book.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: oblique;
+  font-weight: 400; /* Normal weight */
+  src: url('../assets/fonts/quicksand/Quicksand_Book_Oblique.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700; /* Bold weight */
+  src: url('../assets/fonts/quicksand/Quicksand_Bold.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: oblique;
+  font-weight: 700; /* Bold weight */
+  src: url('../assets/fonts/quicksand/Quicksand_Bold_Oblique.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300; /* Light weight */
+  src: url('../assets/fonts/quicksand/Quicksand_Light.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: oblique;
+  font-weight: 300; /* Light weight */
+  src: url('../assets/fonts/quicksand/Quicksand_Light_Oblique.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400; /* Dash weight */
+  src: url('../assets/fonts/quicksand/Quicksand_Dash.otf') format('opentype');
+  font-display: swap;
+}
