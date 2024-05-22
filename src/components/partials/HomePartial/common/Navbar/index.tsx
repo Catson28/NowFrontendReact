@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Hamburger, Logo } from '../../../services/config/icons'
+import { Hamburger, Logo } from '../../../../../services/config/icons'
 import { styled } from 'styled-components'
 import { Link } from 'react-router-dom'
-import { device } from '../../../services/styles/BreakPoints'
+import { device } from '../../../../../services/styles/BreakPoints'
 
 interface NavElementsProps {
   showNavbar: boolean

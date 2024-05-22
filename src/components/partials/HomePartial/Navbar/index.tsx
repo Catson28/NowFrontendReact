@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Hamburger, Logotipo } from '../../../services/config/icons'
+import { Hamburger, Logotipo } from '../../../../services/config/icons'
 import { styled } from 'styled-components'
 import { Link } from 'react-router-dom'
-import { device } from '../../../services/styles/BreakPoints'
+import { device } from '../../../../services/styles/BreakPoints'
 
 interface NavElementsProps {
   showNavbar: boolean
@@ -26,6 +26,12 @@ const NavStyle = styled.nav`
   height: 60px;
   // background-color: #fef7e5;
   position: relative;
+  @media ${device.md} {
+    background-color: #fff600;
+    z-index: 2;
+    width:100%;
+    position:fixed;
+  }
 `
 
 const MenuIcon = styled.div`
@@ -38,10 +44,10 @@ const MenuIcon = styled.div`
 
 const NavElements = styled.div<NavElementsProps>`
   @media ${device.md} {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 60px;
-    background-color: #fef7e5;
+    background-color: #fff600;
     height: calc(100vh - 60px);
     transition: all 0.3s ease-in;
     overflow: hidden;

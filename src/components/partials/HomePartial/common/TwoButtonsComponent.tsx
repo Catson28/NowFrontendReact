@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { device } from '../../../../services/styles/BreakPoints'
 
 // Estilos para o botão outline
 const OutlineButton = styled.button`
@@ -10,21 +11,18 @@ const OutlineButton = styled.button`
   color: #0009FF;
   cursor: pointer;
   border-radius: 15px;
-  margin: 10px;
   min-width: 150px;
   transition: .2s;
+  margin: 0 10px;
   
   &:hover {
     transform: scale(1.05);
   }
   
-
-  @media screen and (max-width: 767px) {
-    width: 80%;
-  }
-  
-  @media screen and (max-width: 479px) {
-    width: 80%;
+  @media ${device.sm} {
+    padding: 15px 30px;
+    border-radius: 25px;
+    min-width: 100px;
   }
 `;
 
@@ -35,7 +33,7 @@ const RegularButton = styled.button`
   color: #fff;
   cursor: pointer;
   border-radius: 15px;
-  // margin: 10px;
+  margin: 0 10px;
   min-width: 150px;
   transition: .2s;
   
@@ -44,40 +42,31 @@ const RegularButton = styled.button`
     background-color: #FFF600;
     color: #0009FF;  
   }
-
-  @media screen and (max-width: 767px) {
-    width: 80%;
-  }
   
-  @media screen and (max-width: 479px) {
-    width: 80%;
+  @media ${device.sm} {
+    padding: 15px 30px;
+    border-radius: 25px;
+    min-width: 100px;
   }
 `;
 
-const Twobuttons = styled.button`
-  display: flex;
-  margin: 2rem 0 0 0;
-
-  @media screen and (max-width: 767px) {
-    justify-content:center;
-    display: block;
-  }
+const Twobuttons = styled.div`
   
-  @media screen and (max-width: 479px) {
-    display: block;
-    justify-content:center;
+  @media ${device.sm} {
+  display: flex;
+  justify-content: space-between;
   }
 `;
 const TwoButtonsComponent: React.FC = () => {
   return (
-    <div>
+    <Twobuttons>
       <Link to="/register">
         <RegularButton>Registar-se</RegularButton>
       </Link>
       <Link to="/entrar">
         <OutlineButton>Entrar</OutlineButton>
       </Link>
-    </div>
+    </Twobuttons>
   );
 };
 

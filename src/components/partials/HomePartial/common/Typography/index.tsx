@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { device } from '../../../services/styles/BreakPoints'
+import { device } from '../../../../../services/styles/BreakPoints'
 
 const Title = styled.h1`
   color: ${({ theme }) => theme.colors.primaryText};

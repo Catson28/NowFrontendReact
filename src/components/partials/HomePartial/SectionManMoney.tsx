@@ -2,7 +2,7 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components'
 
-import { Container } from '../../services/styles/Global'
+import { Container } from '../../../services/styles/Global'
 import TwoButtonsComponent from './common/TwoButtonsComponent';
 
 const Raw = styled.div`
@@ -66,7 +66,7 @@ const BannerCreate = styled.div`
 `;
 
 
-const SectionMVV: React.FC = () => {
+const SectionManMoney: React.FC = () => {
   return (
     <BannerCreate>
       <Container>
@@ -85,5 +85,5 @@ const SectionMVV: React.FC = () => {
   );
 };
 
-export default SectionMVV;
+export default SectionManMoney;
 

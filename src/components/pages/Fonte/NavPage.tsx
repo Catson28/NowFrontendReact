@@ -1,7 +1,7 @@
 // NavPage.tsx
 import React from 'react';
-import Navbar from '../../partials/eliminar/Navbar';
-import MainContent from '../../partials/eliminar/MainContent';
+import Navbar from '../../partials/HomePartial/eliminar/Navbar';
+import MainContent from '../../partials/HomePartial/eliminar/MainContent';
 
 const NavPage: React.FC = () => {
   return (

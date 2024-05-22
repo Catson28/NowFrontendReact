@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
-import Navbar from '../../partials/Navbar'
+import Navbar from '../../partials/HomePartial/Navbar'
 import { theme } from '../../../services/styles/Theme'
 import { Container, Flex, GlobalStyles, Box } from '../../../services/styles/Global'
 

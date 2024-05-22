@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
-import Navbar from '../../partials/Navbar'
+import Navbar from '../../partials/HomePartial/Navbar'
 import { theme } from '../../../services/styles/Theme'
 import { Container, Flex, GlobalStyles, Box } from '../../../services/styles/Global'
 
@@ -20,6 +20,14 @@ const BodyStyles = styled.body`
   box-sizing: border-box;
 `;
 
+const H1 = styled.h1`
+  font-family: ${({ theme }) => theme.fonts.aristaPro}, sans-serif;
+  font-size: 60px;
+  font-weight: 800;
+  color:blue;
+  padding: 2rem 0 2rem 0;
+`
+
 const PainterPage = () => {  
   const [heightHeader, setHeightHeader]  = useState<number>(0);
 
@@ -33,7 +41,8 @@ const PainterPage = () => {
     <ThemeProvider theme={theme}>
         <GlobalStyles />
         <BodyStyles>
-            <Navbar  homeHeader={handleHeightHeader} />
+          <Navbar  homeHeader={handleHeightHeader} />
+          <H1>Pintor</H1>
         </BodyStyles>
     </ThemeProvider>
   )

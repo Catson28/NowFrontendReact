@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-// import styled from 'styled-components';
 import styled, { keyframes } from 'styled-components';
-// import CardData from './utils/CardData'; // Importe o componente
 import { Link } from 'react-router-dom'
 
-import { Container } from '../../../services/styles/Global'
+import { device } from '../../../../services/styles/BreakPoints'
+import { Container } from '../../../../services/styles/Global'
 
-// Estilos específicos para o componente completo
 const StyledCardComponent = styled.div`
 --container-color: #ffffff; /* Ou qualquer outra cor desejada */
   /* Adicione aqui estilos específicos para o componente completo, se necessário */
@@ -191,6 +189,18 @@ const Keyframes = styled.div`
   }
 `;
 
+
+
+
+
+const LandContainer = styled(Container)`
+  @media ${device.md} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
 // Component
 const LandscapeCard = () => {
   const [eletrichover, setEletricHover] = useState(false);
@@ -200,7 +210,7 @@ const LandscapeCard = () => {
   return (
     <StyledCardComponent>
       <Keyframes />
-      <Container>
+      <LandContainer>
         <CardContainer>
           <CardArticle onMouseEnter={() => setPintorHover(true)} onMouseLeave={() => setPintorHover(false)}>
             <CardImage src="/pintor.jpg" alt="image" />
@@ -231,7 +241,7 @@ const LandscapeCard = () => {
               </Link>
           </CardArticle>
         </CardContainer>
-      </Container>
+      </LandContainer>
     </StyledCardComponent>
   );
 };

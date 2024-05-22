@@ -1,9 +1,9 @@
 // src/SectionRegister.tsx
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components'
-import { Container } from '../../services/styles/Global'
+import { Container } from '../../../services/styles/Global'
 import TwoButtonsComponent from './common/TwoButtonsComponent';
-import { device } from '../../services/styles/BreakPoints'
+import { device } from '../../../services/styles/BreakPoints'
 
 interface SectionRegisterProps {
     homeheightHeader: number;
@@ -24,7 +24,9 @@ align-items:center;
 // background-color:yellow;
 
 @media ${device.md} {
+  height: auto;
   display: flex;
+  width: auto;
 }
 
 @media ${device.sm} {
@@ -51,6 +53,7 @@ const Content = styled.div`
 
   }
   @media ${device.sm} {
+    max-width:300px;
 
   }
 `;
@@ -64,6 +67,11 @@ const Paragraph = styled.p`
   @media ${device.md} {
     font-size: 20px;
   }
+
+  @media ${device.sm} {
+    font-size: 20px;
+    margin: 1rem 0 0.5rem 0;
+  }
 `;
 
 const Image = styled.div`
@@ -74,9 +82,13 @@ align-items:flex-end;
 
 
 width: 100%;
-padding-top: 56.25%; /* relação de aspecto de 16:9, ajuste conforme necessário */
+// padding-top: 56.25%; /* relação de aspecto de 16:9, ajuste conforme necessário */
 position: relative;
 overflow: hidden;
+  
+  @media ${device.sm} {
+    justify-content: center;
+  }
 
 `;
 
@@ -90,10 +102,27 @@ const CardImage = styled.img`
   height: 100%;
   object-fit: cover; /* ou 'contain' */
   
+  @media ${device.md} {
+    position: relative;
+    width: 300px;
+    height: 500px;
+  }
+  
   @media ${device.sm} {
-    width: 100vh;
-    height: 100vh;
+    position: relative;
+    width: 300px;
+    height: 500px;
+  }
+`;
 
+
+
+const RegisterContainer = styled(Container)`
+  padding:0;
+  @media ${device.md} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -109,6 +138,7 @@ const H1 = styled.h1`
   }
   
   @media ${device.sm} {
+    font-size: 31px;
   }
 `
 
@@ -131,22 +161,24 @@ const BannerSection = styled.div`
 const SectionRegister: React.FC<SectionRegisterProps> = ({ homeheightHeader }) => {
   return (
     <BannerSection>
-      <Container>
+      <RegisterContainer>
         <Raw homeheightHeader={homeheightHeader}>
           <Content>
             {/* <ExampleFontePage />  */}
 
               
-            <H1>Na ponta dos dedos, serviços sem segredos!</H1>           
-
+            <H1>Na ponta dos dedos, serviços sem segredos!</H1>
+          
             <Paragraph>Agora é fácil encontrar varios serviços num clique na primeira plataforma em Angola que oferece serviços pontuais.</Paragraph>
             <TwoButtonsComponent />
           </Content>
+          
           <Image>
               <CardImage src="/Layer4.png" alt="Service Image" />
           </Image>
+
         </Raw>
-      </Container>
+      </RegisterContainer>
 
     </BannerSection>
   );

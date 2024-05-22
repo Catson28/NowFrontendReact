@@ -1,9 +1,9 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
-import { Container, Flex, GlobalStyles, Box } from '../../services/fonts/GlobalStyles';
+import { Container, Flex, GlobalStyles, Box } from '../../../services/fonts/GlobalStyles';
 import Typography from './common/Typography'
-import { theme } from '../../services/styles/Theme'
+import { theme } from '../../../services/styles/Theme'
 
 
 
@@ -14,7 +14,7 @@ import Navbar from './common/Navbar'
 import ProgressSteps from './common/ProgressSteps'
 import RadioButton from './common/RadioButton'
 
-import { Next, StartIcon } from '../../services/config/icons'
+import { Next, StartIcon } from '../../../services/config/icons'
 
 
 

@@ -2,12 +2,12 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
 
-import Navbar from '../../partials/Navbar'
+import Navbar from '../../partials/HomePartial/Navbar'
 import { theme } from '../../../services/styles/Theme'
 import { Container, Flex, GlobalStyles, Box } from '../../../services/styles/Global'
-import SectionRegister from "../../partials/SectionRegister";
-import SectionServico from "../../partials/SectionServico";
-import SectionMVV from "../../partials/SectionMVV";
+import SectionRegister from "../../partials/HomePartial/SectionRegister";
+import SectionServico from "../../partials/HomePartial/SectionServico";
+import SectionManMoney from "../../partials/HomePartial/SectionManMoney";
 
 
 
@@ -40,7 +40,7 @@ const HomePage = () => {
             <Navbar  homeHeader={handleHeightHeader} />
             <SectionRegister homeheightHeader={heightHeader}/>
             <SectionServico/>
-            <SectionMVV/>
+            <SectionManMoney/>
         </BodyStyles>
     </ThemeProvider>
   )

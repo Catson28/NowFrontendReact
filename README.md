@@ -78,3 +78,10 @@ const GlobalStyles = createGlobalStyle`
 export default GlobalStyles;
 
 ```
+
+# Dependencias para o uso do facebook
+
+```bash
+npm install @types/facebook-js-sdk @vitejs/plugin-react jsdom rimraf rollup tsup vitest yarn-audit-fix --save-dev
+npm install @semantic-release/git --save-dev
+```

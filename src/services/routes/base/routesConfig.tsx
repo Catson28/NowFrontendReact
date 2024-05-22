@@ -2,6 +2,7 @@ import { RouteProps } from 'react-router-dom';
 import React from 'react';
 import HomeRoutes from '../HomeRoutes';
 import FontsRoutes from '../FontsRoutes';
+import TesteRoutes from '../TesteRoutes';
 
 // import outros arquivos de rota conforme necessário
 
@@ -15,6 +16,7 @@ type RouteConfig = RouteProps & RouteConfigBase;
 const routes: RouteConfig[] = [
   ...HomeRoutes,
   ...FontsRoutes,
+  ...TesteRoutes,
 ];
 
 export default routes;

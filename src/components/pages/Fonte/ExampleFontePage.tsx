@@ -1,6 +1,6 @@
 import styled, { ThemeProvider } from 'styled-components'
 
-import Titulo800 from '../../partials/Typography/Titulo800'
+import Titulo800 from '../../partials/HomePartial/Typography/Titulo800'
 
 import { GlobalStyles } from '../../../services/styles/Global'
 import { theme } from '../../../services/styles/Theme'

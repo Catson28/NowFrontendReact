@@ -1,7 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
+import TestePage from '../Teste/TestePage';
 
-import Navbar from '../../partials/Navbar'
+import Navbar from '../../partials/HomePartial/Navbar'
 import { theme } from '../../../services/styles/Theme'
 import { Container, Flex, GlobalStyles, Box } from '../../../services/styles/Global'
 
@@ -42,7 +43,8 @@ const RegisterPage = () => {
         <GlobalStyles />
         <BodyStyles>
           <Navbar  homeHeader={handleHeightHeader} />
-          <H1>Registar-se</H1>
+          <TestePage />
+
         </BodyStyles>
     </ThemeProvider>
   )

@@ -1,12 +1,12 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
-import Button from '../../partials/Button'
-import Input from '../../partials/Input'
-import Navbar from '../../partials/NavDefoult'
-import ProgressSteps from '../../partials/ProgressSteps'
-import RadioButton from '../../partials/RadioButton'
-import Typography from '../../partials/Typography'
+import Button from '../../partials/HomePartial/Button'
+import Input from '../../partials/HomePartial/Input'
+import Navbar from '../../partials/HomePartial/NavDefoult'
+import ProgressSteps from '../../partials/HomePartial/ProgressSteps'
+import RadioButton from '../../partials/HomePartial/RadioButton'
+import Typography from '../../partials/HomePartial/Typography'
 
 import { Next, StartIcon } from '../../../services/config/icons'
 import { Container, Flex, GlobalStyles, Box } from '../../../services/styles/Global'
