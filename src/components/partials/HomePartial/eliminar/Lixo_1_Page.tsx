@@ -1,22 +1,22 @@
 import { useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
-import Header from "../../partials/HomePartial/Header";
-import ExampleFontePage from "../Fonte/ExampleFontePage";
-import SectionRegister from "../../partials/HomePartial/SectionRegister";
-import SectionServico from "../../partials/HomePartial/SectionServico";
-import SectionMVV from "../../partials/HomePartial/SectionManMoney";
-import SectionTeam from "../../partials/HomePartial/SectionTeam";
-import ServiceDevelopment from "../../partials/HomePartial/ServiceDevelopment";
-import ServiceMediaManagement from "../../partials/HomePartial/ServiceMediaManagement";
-import SectionPortfolio from "../../partials/HomePartial/SectionPortfolio";
-import Testimonial from "../../partials/HomePartial/Testimonial";
-import Contact from "../../partials/HomePartial/Contact";
-import Footer from "../../partials/HomePartial/Footer";
-import CookieComponent from "../../partials/HomePartial/CookieComponent";
-import Titulo800 from '../../partials/HomePartial/Typography/Titulo800'
+import Header from "../Header";
+import ExampleFontePage from "../../../pages/Fonte/ExampleFontePage";
+import SectionRegister from "../SectionRegister";
+import SectionServico from "../SectionServico";
+import SectionMVV from "../SectionManMoney";
+import SectionTeam from "../SectionTeam";
+import ServiceDevelopment from "../ServiceDevelopment";
+import ServiceMediaManagement from "../ServiceMediaManagement";
+import SectionPortfolio from "../SectionPortfolio";
+import Testimonial from "../Testimonial";
+import Contact from "../Contact";
+import Footer from "../Footer";
+import CookieComponent from "../CookieComponent";
+import Titulo800 from '../Typography/Titulo800'
 
-import { Container, Flex, GlobalStyles, Box } from '../../../services/styles/Global'
-import { theme } from '../../../services/styles/Theme'
+import { Container, Flex, GlobalStyles, Box } from '../../../../services/styles/Global'
+import { theme } from '../../../../services/styles/Theme'
 
 
 const BodyStyles = styled.body`

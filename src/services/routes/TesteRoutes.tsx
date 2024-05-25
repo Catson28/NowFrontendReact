@@ -1,8 +1,8 @@
-import TestePage from '../../components/pages/Teste/TestePage';
+import TestePage from '../../components/partials/HomePartial/users/Register';
 
 const TesteRoutes = [
   {
-    path: '/register',
+    path: '/teste',
     element: <TestePage />,
   }
 ];

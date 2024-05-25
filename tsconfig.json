@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "ns/config"  ]
+, "ns/config", "Lixo/ProductDataService.ts", "Lixo/ServiceDataService.ts", "Lixo/TutorialDataService.ts", "Lixo/SubcategoryDataService.ts", "Lixo/FileUploadDataService.ts", "Lixo/UserImageGalleryComplex.tsx", "Lixo/UsersList.tsx", "Lixo/WholeUser.tsx", "Lixo/ImgUpdateUser.tsx", "Lixo/UserEdit.tsx", "Lixo/FormImgUploadUser.tsx"  ]
 }

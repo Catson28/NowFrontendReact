@@ -63,7 +63,7 @@ const TwoButtonsComponent: React.FC = () => {
       <Link to="/register">
         <RegularButton>Registar-se</RegularButton>
       </Link>
-      <Link to="/entrar">
+      <Link to="/login">
         <OutlineButton>Entrar</OutlineButton>
       </Link>
     </Twobuttons>
