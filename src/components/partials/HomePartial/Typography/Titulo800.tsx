@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import React, { useState } from 'react'
 import { device } from '../../../../services/styles/BreakPoints'
 
 const Title = styled.h1`

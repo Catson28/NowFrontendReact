@@ -1,10 +1,12 @@
 import Lixo_1_Page from '../../components/partials/HomePartial/eliminar/Lixo_1_Page';
 import HomePage from '../../components/pages/Home/HomePage';
+import React from 'react'
 
 
 import ProjectPage from '../../components/pages/Home/ProjectPage';
 import ServicePage from '../../components/pages/Home/ServicePage';
 import AboutPage from '../../components/pages/Home/AboutPage';
+import AclPage from '../../components/pages/Home/AclPage';
 import ContactPage from '../../components/pages/Home/ContactPage';
 import RegisterPage from '../../components/pages/Home/RegisterPage';
 import LoginPage from '../../components/pages/Home/LoginPage';
@@ -93,6 +95,10 @@ const HomeRoutes = [
   {
     path: '/admin',
     element: <BoardAdmin />,
+  },
+  {
+    path: '/level',
+    element: <AclPage />,
   }
 ];
 

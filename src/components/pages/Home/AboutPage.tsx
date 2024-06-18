@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
 import Navbar from '../../partials/HomePartial/Navbar'
@@ -28,7 +28,7 @@ const H1 = styled.h1`
   padding: 2rem 0 2rem 0;
 `
 
-const AboutPage = () => {  
+const AboutPage: React.FC = () => {  
   const [heightHeader, setHeightHeader]  = useState<number>(0);
 
   const handleHeightHeader = (value: number) => {

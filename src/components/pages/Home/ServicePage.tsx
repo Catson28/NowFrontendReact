@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
+import React from 'react'
 
 import Navbar from '../../partials/HomePartial/Navbar'
 import { theme } from '../../../services/styles/Theme'
@@ -28,7 +29,7 @@ const H1 = styled.h1`
   padding: 2rem 0 2rem 0;
 `
 
-const ServicePage = () => {  
+const ServicePage: React.FC = () => { 
   const [heightHeader, setHeightHeader]  = useState<number>(0);
 
   const handleHeightHeader = (value: number) => {

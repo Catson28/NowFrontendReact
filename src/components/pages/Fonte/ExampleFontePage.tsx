@@ -1,5 +1,5 @@
 import styled, { ThemeProvider } from 'styled-components'
-
+import React from "react";
 import Titulo800 from '../../partials/HomePartial/Typography/Titulo800'
 
 import { GlobalStyles } from '../../../services/styles/Global'

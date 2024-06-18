@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import styled from 'styled-components';
 import * as Yup from "yup";
+import styled from 'styled-components';
+
 import AuthService from "../../../services/net/auth.service";
+import NavbarComp from "./NavbarComp";
 import Navbar from '../../partials/HomePartial/Navbar'
 
 type Props = {};
 
 type State = {
-  redirect: string | null;
-  from: string;
-  username: string;
-  password: string;
-  loading: boolean;
-  message: string;
+  redirect: string | null,
+  from: string,
+  username: string,
+  password: string,
+  loading: boolean,
+  message: string
 };
+
 
 
 
@@ -351,15 +354,24 @@ const Message = styled.div`
   font-size: 14px;
 `;
 
-const Login: React.FC<Props> = () => {
-  const [state, setState] = useState<State>({
-    redirect: null,
-    from: new URLSearchParams(window.location.search).get("from") || "/profile",
-    username: "",
-    password: "",
-    loading: false,
-    message: ""
-  });
+const Login: React.FC<Props, State> = () => {
+
+  constructor(props: Props) {
+    super(props);
+    this.handleLogin = this.handleLogin.bind(this);
+  
+    const searchParams = new URLSearchParams(window.location.search);
+    const from = searchParams.get("from") || "/profile";
+  
+    this.state = {
+      redirect: null,
+      from: from,
+      username: "",
+      password: "",
+      loading: false,
+      message: ""
+    };
+  }
 
   const [heightHeader, setHeightHeader]  = useState<number>(0);
 
@@ -369,59 +381,53 @@ const Login: React.FC<Props> = () => {
   const handleHeightHeader = (value: number) => {
     setHeightHeader(value);
   };
+  
+  let navigate: NavigateFunction = useNavigate();
 
-  const location = useLocation();
-
-  useEffect(() => {
-    const currentUser = AuthService.getCurrentUser();
-    if (currentUser) {
-      setState((prevState) => ({ ...prevState, redirect: prevState.from }));
-    }
-  }, []);
+  const initialValues: {
+    username: string;
+    password: string;
+  } = {
+    username: "",
+    password: "",
+  };
 
   const validationSchema = Yup.object().shape({
     username: Yup.string().required("This field is required!"),
-    password: Yup.string().required("This field is required!")
+    password: Yup.string().required("This field is required!"),
   });
 
   const handleLogin = (formValue: { username: string; password: string }) => {
     const { username, password } = formValue;
-    setState((prevState) => ({ ...prevState, message: "", loading: true }));
+
+    setMessage("");
+    setLoading(true);
 
     AuthService.login(username, password).then(
       () => {
-        setState((prevState) => ({
-          ...prevState,
-          redirect: prevState.from
-        }));
+        navigate("/profile");
+        window.location.reload();
       },
       (error) => {
         const resMessage =
-          (error.response && error.response.data && error.response.data.message) ||
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
           error.message ||
           error.toString();
 
-        setState((prevState) => ({
-          ...prevState,
-          loading: false,
-          message: resMessage
-        }));
+        setLoading(false);
+        setMessage(resMessage);
       }
     );
-  };
-
-  if (state.redirect) {
-    return <Navigate to={state.redirect} />;
-  }
-
-  const initialValues = {
-    username: "",
-    password: ""
   };
 
   return (
     <>
       <Navbar  homeHeader={handleHeightHeader} />
+
+
+
 
       <PageContent>
         <FormV4Content>
@@ -439,7 +445,6 @@ const Login: React.FC<Props> = () => {
               </FormLeftLast>
             </FormLeftContent>
           </FormLeft>
-
           <FormDetail className="col-md-12">
             <ProfileImg
               src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
@@ -480,6 +485,7 @@ const Login: React.FC<Props> = () => {
           </FormDetail>
         </FormV4Content>
       </PageContent>
+      {/* <NavbarComp /> */}
     </>
   );
 };

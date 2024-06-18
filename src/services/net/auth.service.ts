@@ -1,39 +1,30 @@
 import http from "./base/http-common";
 
+
 class AuthService {
-  register(username: string, email: string, password: string) {
-    return http.post("signup", {
-      username,
-      email,
-      password,
+  login(username: string, password: string) {
+    return http.post("api/auth/signin", { username, password }).then(response => {
+      if (response.data.accessToken) {
+        localStorage.setItem("api/auth/user", JSON.stringify(response.data));
+      }
+      return response.data;
     });
   }
 
-  login(username: string, password: string) {
-    return http
-      .post("auth/login", {
-        username,
-        password,
-      })
-      .then((response) => {
-        if (response.data.accessToken) {
-          localStorage.setItem("user", JSON.stringify(response.data));
-        }
-        return response.data;
-      });
+  logout() {
+    localStorage.removeItem("api/auth/user");
   }
 
-  logout() {
-    localStorage.removeItem("user");
+  register(username: string, email: string, password: string) {
+    return http.post("api/auth/signup", { username, email, password });
   }
 
   getCurrentUser() {
-    const userStr = localStorage.getItem("user");
+    const userStr = localStorage.getItem("api/auth/user");
     if (userStr) return JSON.parse(userStr);
     return null;
   }
 }
 
-// export default new AuthService();
 const AuthServiceInstance = new AuthService();
 export default AuthServiceInstance;

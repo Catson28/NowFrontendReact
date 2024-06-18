@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
+import React,{ ChangeEvent, FormEvent, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
 
@@ -24,7 +24,7 @@ const BodyStyles = styled.body`
   box-sizing: border-box;
 `;
 
-const HomePage = () => {  
+const HomePage: React.FC = () => { 
   const [heightHeader, setHeightHeader]  = useState<number>(0);
 
   const handleHeightHeader = (value: number) => {

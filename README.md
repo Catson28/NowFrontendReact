@@ -85,3 +85,34 @@ export default GlobalStyles;
 npm install @types/facebook-js-sdk @vitejs/plugin-react jsdom rimraf rollup tsup vitest yarn-audit-fix --save-dev
 npm install @semantic-release/git --save-dev
 ```
+
+[Resolucao de bub](resolucao/bugs.md)
+[Conprimento (Width) do container](resolucao/container.md)
+
+# _
+
+Para adicionar a variável de ambiente `PORT` ao seu projeto React TypeScript, você pode seguir os seguintes passos:
+
+1. **Criar ou editar o arquivo `.env`:**
+   - Na raiz do seu projeto, crie um arquivo chamado `.env` se ele ainda não existir.
+
+2. **Adicionar a variável de ambiente:**
+   - Abra o arquivo `.env` e adicione a seguinte linha para definir a porta como 8081:
+     ```env
+     PORT=8081
+     ```
+
+3. **Certificar-se de que o CRA (Create React App) está configurado para usar as variáveis do `.env`:**
+   - Se você criou seu projeto com Create React App (CRA), ele automaticamente carrega as variáveis de ambiente do arquivo `.env`. 
+   - As variáveis definidas no `.env` devem estar prefixadas com `REACT_APP_` para serem acessíveis no código do seu aplicativo, mas a variável `PORT` é uma exceção e pode ser usada sem o prefixo `REACT_APP_`.
+
+4. **Reiniciar o servidor de desenvolvimento:**
+   - Depois de adicionar ou modificar o arquivo `.env`, você precisa reiniciar o servidor de desenvolvimento para que as novas variáveis de ambiente sejam carregadas. 
+
+Aqui está um exemplo de como o arquivo `.env` pode se parecer:
+
+```env
+PORT=8081
+```
+
+Com esses passos, seu aplicativo React TypeScript deve ser executado na porta 8081 quando você iniciar o servidor de desenvolvimento com `npm start` ou `yarn start`.

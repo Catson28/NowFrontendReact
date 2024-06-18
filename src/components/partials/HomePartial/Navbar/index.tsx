@@ -1,15 +1,23 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Hamburger, Logotipo } from '../../../../services/config/icons'
-import { styled } from 'styled-components'
-import { Link } from 'react-router-dom'
-import { device } from '../../../../services/styles/BreakPoints'
+import { Hamburger, Logotipo } from '../../../../services/config/icons';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { device } from '../../../../services/styles/BreakPoints';
+import AuthService from "../../../../services/net/auth.service";
+
+import EventBus from "../../../../services/common/EventBus";
 
 interface NavElementsProps {
-  showNavbar: boolean
+  showNavbar: boolean;
 }
 
 interface NavbarProps {
   homeHeader: (value: number) => void;
+}
+
+interface IUser {
+  username: string;
+  roles: string[];
 }
 
 const Container = styled.div`
@@ -20,19 +28,18 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 100%;
-`
+`;
 
 const NavStyle = styled.nav`
   height: 60px;
-  // background-color: #fef7e5;
   position: relative;
   @media ${device.md} {
     background-color: #fff600;
     z-index: 2;
-    width:100%;
-    position:fixed;
+    width: 100%;
+    position: fixed;
   }
-`
+`;
 
 const MenuIcon = styled.div`
   display: none;
@@ -40,7 +47,7 @@ const MenuIcon = styled.div`
     display: block;
     cursor: pointer;
   }
-`
+`;
 
 const NavElements = styled.div<NavElementsProps>`
   @media ${device.md} {
@@ -93,57 +100,107 @@ const NavElements = styled.div<NavElementsProps>`
     height: 2px;
     background-color: #574c4c;
   }
-`
+`;
 
-const Navbar: React.FC< NavbarProps > = ({ homeHeader }) => {
-  const [showNavbar, setShowNavbar] = useState(false)
+const Navbar: React.FC<NavbarProps> = ({ homeHeader }) => {
+  const [showNavbar, setShowNavbar] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const [currentUser, setCurrentUser] = useState<IUser | undefined>(undefined);
+  const [showModeratorBoard, setShowModeratorBoard] = useState(false);
+  const [showAdminBoard, setShowAdminBoard] = useState(false);
 
   useEffect(() => {
-      if (navRef.current) {
-          console.log('Altura do Navbar:', navRef.current.offsetHeight);
-          homeHeader(navRef.current.offsetHeight);
-      }
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+      setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
+      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
+    }
+
+    EventBus.on("logout", logOut);
+
+    return () => {
+      EventBus.remove("logout", logOut);
+    };
   }, []);
 
+  useEffect(() => {
+    if (navRef.current) {
+      console.log('Altura do Navbar:', navRef.current.offsetHeight);
+      homeHeader(navRef.current.offsetHeight);
+    }
+  }, [homeHeader]);
+
+  const logOut = () => {
+    AuthService.logout();
+    setShowModeratorBoard(false);
+    setShowAdminBoard(false);
+    setCurrentUser(undefined);
+  };
+
   const handleShowNavbar = () => {
-    setShowNavbar(!showNavbar)
-  }
+    setShowNavbar(!showNavbar);
+  };
 
   return (
     <NavStyle>
-      <Container  ref={navRef}>
+      <Container ref={navRef}>
         <div>
           <Logotipo />
         </div>
         <MenuIcon onClick={handleShowNavbar}>
           <Hamburger />
         </MenuIcon>
-        <NavElements
-          showNavbar={showNavbar}
-          className={showNavbar ? 'active' : undefined}>
+        <NavElements showNavbar={showNavbar} className={showNavbar ? 'active' : undefined}>
           <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/service">Serviços</Link>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/projects">Projects</Link>
+              <Link to="/services">Services</Link>
             </li>
             <li>
-              <Link to="/about">Sobre Nós</Link>
+              <Link to="/contact">Contact</Link>
             </li>
-            <li>
-              <Link to="/contact">Contactos</Link>
-            </li>
+            {showModeratorBoard && (
+              <li>
+                <Link to="/mod">Moderator Board</Link>
+              </li>
+            )}
+            {showAdminBoard && (
+              <li>
+                <Link to="/admin">Admin Board</Link>
+              </li>
+            )}
+            {currentUser && (
+              <>
+                <li>
+                  <Link to="/profile">{currentUser.username}</Link>
+                </li>
+                <li>
+                  <a href="/login" onClick={logOut}>LogOut</a>
+                </li>
+              </>
+            )}
+            {!currentUser && (
+              <>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+                <li>
+                  <Link to="/register">Sign Up</Link>
+                </li>
+              </>
+            )}
           </ul>
         </NavElements>
       </Container>
     </NavStyle>
-  )
-}
+  );
+};
 
-export default Navbar
-
+export default Navbar;
