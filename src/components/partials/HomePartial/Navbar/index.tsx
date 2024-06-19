@@ -116,14 +116,13 @@ const Navbar: React.FC<NavbarProps> = ({ homeHeader }) => {
       setCurrentUser(user);
       setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
       setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
-    }
 
     EventBus.on("logout", logOut);
 
     return () => {
       EventBus.remove("logout", logOut);
     };
-  }, []);
+  }});
 
   useEffect(() => {
     if (navRef.current) {

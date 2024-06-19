@@ -14,6 +14,7 @@ import PainterPage from '../../components/pages/Home/PainterPage';
 import ElectricianPage from '../../components/pages/Home/ElectricianPage';
 import HousekeeperPage from '../../components/pages/Home/HousekeeperPage';
 
+import PrivateRoute from '../../components/pages/protected/PrivateRoute';
 
 import Home from '../../components/pages/Home/Home';
 import Login from '../../components/pages/Home/Login';
@@ -82,11 +83,15 @@ const HomeRoutes = [
   },
   {
     path: '/profile',
-    element: <Profile />,
+    element:  <PrivateRoute element={<Profile />} />,
   },
   {
     path: '/user',
     element: <BoardUser />,
+  },
+  {
+    path: '/protegida',//Rota protegida
+    element: <PrivateRoute element={<Home />} />,
   },
   {
     path: '/mod',
