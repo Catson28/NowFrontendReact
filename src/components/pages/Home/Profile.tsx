@@ -22,10 +22,13 @@ const Profile: React.FC = () => {
       <p>
         <strong>Email:</strong> {currentUser.email}
       </p>
-      <strong>Authorities:</strong>
+      <p>
+        <strong>Authorities:</strong> {currentUser.role}
+      </p>
+      <strong>Permissions:</strong>
       <ul>
-        {currentUser.roles &&
-          currentUser.roles.map((role: string, index: number) => <li key={index}>{role}</li>)}
+        {currentUser.permissions &&
+          currentUser.permissions.map((permission: string, index: number) => <li key={index}>{permission}</li>)}
       </ul>
     </div>
   );

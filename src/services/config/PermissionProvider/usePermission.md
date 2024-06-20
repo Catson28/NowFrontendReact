@@ -1,3 +1,4 @@
+```tsx
 import {useContext, useState} from 'react';
 import PermissionContext from "./PermissionContext";
 import {Permission} from "../../types/mainTypes";
@@ -16,3 +17,4 @@ const usePermission = (permission: Permission) => {
 }
 
 export default usePermission;
+```

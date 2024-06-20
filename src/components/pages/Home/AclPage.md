@@ -1,3 +1,4 @@
+```tsx
 import { useState } from 'react';
 import '../../../App.css';
 import { Permission, User } from "../../../services/types/mainTypes";
@@ -61,3 +62,4 @@ function AclPage() {
 }
 
 export default AclPage;
+```

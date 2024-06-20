@@ -1,3 +1,4 @@
+```tsx
 import React from 'react';
 import { Permission } from "../../types/mainTypes";
 import usePermission from "./usePermission";
@@ -24,3 +25,4 @@ const Restricted: React.FunctionComponent<React.PropsWithChildren<Props>> = ({ t
 };
 
 export default Restricted;
+```

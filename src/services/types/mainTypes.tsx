@@ -1,8 +1,9 @@
 export type Permission = string;
 
 export type User = {
-    firstName: string;
-    lastName: string;
+    role: string;
+    username: string;
+    // email: string;
     permissions: Permission[];
 }
 

@@ -1,4 +1,4 @@
-import {ElementType} from "./types/mainTypes";
+import {ElementType} from "../types/mainTypes";
 
 let storedElements: ElementType[] = [{
     name: 'item 1',

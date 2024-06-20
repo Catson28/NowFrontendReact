@@ -17,7 +17,7 @@ interface NavbarProps {
 
 interface IUser {
   username: string;
-  roles: string[];
+  role: string;
 }
 
 const Container = styled.div`
@@ -114,8 +114,8 @@ const Navbar: React.FC<NavbarProps> = ({ homeHeader }) => {
 
     if (user) {
       setCurrentUser(user);
-      setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
-      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
+      setShowModeratorBoard(user.role === "ROLE_MODERATOR");
+      setShowAdminBoard(user.role === "ROLE_ADMIN");
 
     EventBus.on("logout", logOut);
 
@@ -160,7 +160,7 @@ const Navbar: React.FC<NavbarProps> = ({ homeHeader }) => {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/services">Services</Link>
+              <Link to="/level">Services</Link>
             </li>
             <li>
               <Link to="/contact">Contact</Link>

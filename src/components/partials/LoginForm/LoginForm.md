@@ -1,3 +1,4 @@
+```tsx
 import React from 'react';
 import { User } from "../../../services/types/mainTypes";
 
@@ -121,3 +122,4 @@ const LoginForm: React.FunctionComponent<Props> = ({ onLogin }: Props) => (
 );
 
 export default LoginForm;
+```

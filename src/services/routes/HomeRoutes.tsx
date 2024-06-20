@@ -103,7 +103,7 @@ const HomeRoutes = [
   },
   {
     path: '/level',
-    element: <AclPage />,
+    element: <PrivateRoute element={<AclPage />} />,
   }
 ];
 
