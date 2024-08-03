@@ -1,110 +1,109 @@
-import Lixo_1_Page from '../../components/partials/HomePartial/eliminar/Lixo_1_Page';
-import HomePage from '../../components/pages/Home/HomePage';
-import React from 'react'
+import Lixo_1_Page from "../../components/partials/HomePartial/eliminar/Lixo_1_Page";
+import HomePage from "../../components/pages/Home/HomePage";
+import React from "react";
 
+import ProjectPage from "../../components/pages/Home/ProjectPage";
+import ServicePage from "../../components/pages/Home/ServicePage";
+import AboutPage from "../../components/pages/Home/AboutPage";
+import AclPage from "../../components/pages/Home/AclPage";
+import ContactPage from "../../components/pages/Home/ContactPage";
+import RegisterPage from "../../components/pages/Home/RegisterPage";
+import LoginPage from "../../components/pages/Home/LoginPage";
+import PainterPage from "../../components/pages/Home/PainterPage";
+import ElectricianPage from "../../components/pages/Home/ElectricianPage";
+import HousekeeperPage from "../../components/pages/Home/HousekeeperPage";
 
-import ProjectPage from '../../components/pages/Home/ProjectPage';
-import ServicePage from '../../components/pages/Home/ServicePage';
-import AboutPage from '../../components/pages/Home/AboutPage';
-import AclPage from '../../components/pages/Home/AclPage';
-import ContactPage from '../../components/pages/Home/ContactPage';
-import RegisterPage from '../../components/pages/Home/RegisterPage';
-import LoginPage from '../../components/pages/Home/LoginPage';
-import PainterPage from '../../components/pages/Home/PainterPage';
-import ElectricianPage from '../../components/pages/Home/ElectricianPage';
-import HousekeeperPage from '../../components/pages/Home/HousekeeperPage';
+import PrivateRoute from "../../components/pages/protected/PrivateRoute";
 
-import PrivateRoute from '../../components/pages/protected/PrivateRoute';
-
-import Home from '../../components/pages/Home/Home';
-import Login from '../../components/pages/Home/Login';
-import Register from '../../components/pages/Home/Register';
-import Profile from '../../components/pages/Home/Profile';
-import BoardUser from '../../components/pages/Home/BoardUser';
-import BoardModerator from '../../components/pages/Home/BoardModerator';
-import BoardAdmin from '../../components/pages/Home/BoardAdmin';
+import Home from "../../components/pages/Home/Home";
+import Login from "../../components/pages/Home/Login";
+import Register from "../../components/pages/Home/Register";
+import Profile from "../../components/pages/Home/Profile";
+import BoardUser from "../../components/pages/Home/BoardUser";
+import BoardModerator from "../../components/pages/Home/BoardModerator";
+import BoardAdmin from "../../components/pages/Home/BoardAdmin";
 
 const HomeRoutes = [
   {
-    path: '/lixo',
+    path: "/lixo",
     element: <Lixo_1_Page />,
   },
   {
-    path: '/projects',
+    path: "/projects",
     element: <ProjectPage />,
   },
   {
-    path: '/',
+    path: "/",
     element: <HomePage />,
   },
   {
-    path: '/service',
+    path: "/service",
     element: <ServicePage />,
   },
   {
-    path: '/about',
+    path: "/about",
     element: <AboutPage />,
   },
   {
-    path: '/contact',
+    path: "/contact",
     element: <ContactPage />,
   },
   {
-    path: '/register',
+    path: "/register",
     element: <RegisterPage />,
   },
   {
-    path: '/entrar',
+    path: "/entrar",
     element: <LoginPage />,
   },
   {
-    path: '/pintor',
+    path: "/pintor",
     element: <PainterPage />,
   },
   {
-    path: '/eletricista',
+    path: "/eletricista",
     element: <ElectricianPage />,
   },
   {
-    path: '/diarista',
+    path: "/diarista",
     element: <HousekeeperPage />,
   },
   {
-    path: '/home',
+    path: "/home",
     element: <Home />,
   },
   {
-    path: '/login',
+    path: "/login",
     element: <Login />,
   },
   {
-    path: '/register',
+    path: "/registeryu",
     element: <Register />,
   },
   {
-    path: '/profile',
-    element:  <PrivateRoute element={<Profile />} />,
+    path: "/profile",
+    element: <PrivateRoute element={<Profile />} />,
   },
   {
-    path: '/user',
+    path: "/user",
     element: <BoardUser />,
   },
   {
-    path: '/protegida',//Rota protegida
+    path: "/protegida", //Rota protegida
     element: <PrivateRoute element={<Home />} />,
   },
   {
-    path: '/mod',
+    path: "/mod",
     element: <BoardModerator />,
   },
   {
-    path: '/admin',
+    path: "/admin",
     element: <BoardAdmin />,
   },
   {
-    path: '/level',
+    path: "/level",
     element: <PrivateRoute element={<AclPage />} />,
-  }
+  },
 ];
 
 export default HomeRoutes;

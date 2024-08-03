@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Hamburger, Logotipo } from '../../../../services/config/icons';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { device } from '../../../../services/styles/BreakPoints';
+import React, { useState, useRef, useEffect } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { device } from "../../../../services/styles/BreakPoints";
+import { Hamburger, Logotipo } from "../../../../services/config/icons";
 import AuthService from "../../../../services/net/auth.service";
 
 import EventBus from "../../../../services/common/EventBus";
@@ -58,7 +58,7 @@ const NavElements = styled.div<NavElementsProps>`
     height: calc(100vh - 60px);
     transition: all 0.3s ease-in;
     overflow: hidden;
-    width: ${({ showNavbar }) => (showNavbar ? '270px' : '0')};
+    width: ${({ showNavbar }) => (showNavbar ? "270px" : "0")};
     z-index: 2;
     ul {
       display: flex;
@@ -92,7 +92,7 @@ const NavElements = styled.div<NavElementsProps>`
     position: relative;
   }
   ul a.active::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -4px;
     left: 0;
@@ -117,16 +117,17 @@ const Navbar: React.FC<NavbarProps> = ({ homeHeader }) => {
       setShowModeratorBoard(user.role === "ROLE_MODERATOR");
       setShowAdminBoard(user.role === "ROLE_ADMIN");
 
-    EventBus.on("logout", logOut);
+      EventBus.on("logout", logOut);
 
-    return () => {
-      EventBus.remove("logout", logOut);
-    };
-  }});
+      return () => {
+        EventBus.remove("logout", logOut);
+      };
+    }
+  });
 
   useEffect(() => {
     if (navRef.current) {
-      console.log('Altura do Navbar:', navRef.current.offsetHeight);
+      console.log("Altura do Navbar:", navRef.current.offsetHeight);
       homeHeader(navRef.current.offsetHeight);
     }
   }, [homeHeader]);
@@ -151,7 +152,10 @@ const Navbar: React.FC<NavbarProps> = ({ homeHeader }) => {
         <MenuIcon onClick={handleShowNavbar}>
           <Hamburger />
         </MenuIcon>
-        <NavElements showNavbar={showNavbar} className={showNavbar ? 'active' : undefined}>
+        <NavElements
+          showNavbar={showNavbar}
+          className={showNavbar ? "active" : undefined}
+        >
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -181,7 +185,9 @@ const Navbar: React.FC<NavbarProps> = ({ homeHeader }) => {
                   <Link to="/profile">{currentUser.username}</Link>
                 </li>
                 <li>
-                  <a href="/login" onClick={logOut}>LogOut</a>
+                  <a href="/login" onClick={logOut}>
+                    LogOut
+                  </a>
                 </li>
               </>
             )}

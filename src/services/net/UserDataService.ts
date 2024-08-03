@@ -10,7 +10,13 @@ class UserDataService {
     return http.get<IUserData>(`api/users/read/${id}/`);
   }
 
-  uploadImg(file: File, contentType: string, objectId: number, userId: number, onUploadProgress: any) {
+  uploadImg(
+    file: File,
+    contentType: string,
+    objectId: number,
+    userId: number,
+    onUploadProgress: any
+  ) {
     let formData = new FormData();
     formData.append("Path", file);
     formData.append("content_type", contentType);
@@ -94,8 +100,20 @@ class UserDataService {
     return http.post<any>(`auth/logout/`);
   }
 
-  postUsers(data: IUserData) {
-    return http.post<IUserData>("users", data);
+  async postUsers(data: IUserData) {
+    // postUsers(data: IUserData) { // Sem a correcao anteriormente era assim
+    // return http.post<IUserData>("users", data); // Sem a correcao anteriormente era assim
+    /*
+    
+    */
+    try {
+      const response = await http.post<IUserData>("users", data);
+      console.log(JSON.stringify(response.data));
+      return response.data;
+    } catch (error) {
+      console.error("Error posting user data", error);
+      throw error; // opcionalmente, você pode lançar o erro novamente para que ele possa ser tratado em outro lugar
+    }
   }
 
   createPermissionForRole(data: any) {

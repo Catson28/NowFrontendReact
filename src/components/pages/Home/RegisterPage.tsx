@@ -1,17 +1,18 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
-import styled, { ThemeProvider } from 'styled-components'
-import Register from '../../partials/HomePartial/users/Register';
+import { ChangeEvent, FormEvent, useState } from "react";
+import styled, { ThemeProvider } from "styled-components";
 
-import Navbar from '../../partials/HomePartial/Navbar'
-import { theme } from '../../../services/styles/Theme'
-import { Container, Flex, GlobalStyles, Box } from '../../../services/styles/Global'
-
-
-
+import Navbar from "../../partials/HomePartial/Navbar";
+import { theme } from "../../../services/styles/Theme";
+import Register from "../../partials/HomePartial/users/Register";
+import {
+  Container,
+  Flex,
+  GlobalStyles,
+  Box,
+} from "../../../services/styles/Global";
 
 const BodyStyles = styled.body`
-
-//   background-size: cover;
+  //   background-size: cover;
   background-repeat: no-repeat;
   background-position: top 0 right 0;
   color: #1b2f5a;
@@ -25,29 +26,26 @@ const H1 = styled.h1`
   font-family: ${({ theme }) => theme.fonts.aristaPro}, sans-serif;
   font-size: 60px;
   font-weight: 800;
-  color:blue;
+  color: blue;
   padding: 2rem 0 2rem 0;
-`
+`;
 
-const RegisterPage = () => {  
-  const [heightHeader, setHeightHeader]  = useState<number>(0);
+const RegisterPage = () => {
+  const [heightHeader, setHeightHeader] = useState<number>(0);
 
   const handleHeightHeader = (value: number) => {
     setHeightHeader(value);
   };
 
-
-
   return (
     <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <BodyStyles>
-          <Navbar  homeHeader={handleHeightHeader} />
-          <Register />
-        </BodyStyles>
-
+      <GlobalStyles />
+      <BodyStyles>
+        <Navbar homeHeader={handleHeightHeader} />
+        <Register />
+      </BodyStyles>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default RegisterPage
+export default RegisterPage;

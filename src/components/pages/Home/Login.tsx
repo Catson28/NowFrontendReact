@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import styled from 'styled-components';
+import * as Yup from "yup";
 import AuthService from "../../../services/net/auth.service";
+import Navbar from '../../partials/HomePartial/Navbar'
 
 type Props = {};
 
@@ -360,6 +361,15 @@ const Login: React.FC<Props> = () => {
     message: ""
   });
 
+  const [heightHeader, setHeightHeader]  = useState<number>(0);
+
+  const [loading, setLoading] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>("");
+
+  const handleHeightHeader = (value: number) => {
+    setHeightHeader(value);
+  };
+
   const location = useLocation();
 
   useEffect(() => {
@@ -376,7 +386,9 @@ const Login: React.FC<Props> = () => {
 
   const handleLogin = (formValue: { email: string; password: string }) => {
     const { email, password } = formValue;
-    setState((prevState) => ({ ...prevState, message: "", loading: true }));
+    // setState((prevState) => ({ ...prevState, message: "", loading: true }));
+    setMessage("");
+    setLoading(true);
 
     AuthService.login(email, password).then(
       () => {
@@ -391,11 +403,13 @@ const Login: React.FC<Props> = () => {
           error.message ||
           error.toString();
 
-        setState((prevState) => ({
-          ...prevState,
-          loading: false,
-          message: resMessage
-        }));
+        // setState((prevState) => ({
+        //   ...prevState,
+        //   loading: false,
+        //   message: resMessage
+        // }));
+        setLoading(false);
+        setMessage(resMessage);
       }
     );
   };
@@ -410,50 +424,67 @@ const Login: React.FC<Props> = () => {
   };
 
   return (
-    <div className="col-md-12">
-      <div className="card card-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
+    <>
+      <Navbar  homeHeader={handleHeightHeader} />
 
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleLogin}
-        >
-          <Form>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <Field name="email" type="email" className="form-control" />
-              <ErrorMessage name="email" component="div" className="alert alert-danger" />
-            </div>
+      <PageContent>
+        <FormV4Content>
+          <FormLeft>
+            <FormLeftContent>
+              <Title>INFORMAÇÃO PRÉVIA DE CADASTRO</Title>
+              <Text className="text-1">
+                Bem-vindo ao nosso marketplace! Aqui você encontrará uma ampla variedade de serviços à sua disposição. Antes de prosseguir com o cadastro, leia as informações abaixo com atenção.
+              </Text>
+              <Text className="text-2">
+                <span>Importante:</span> Forneça informações precisas e atualizadas para garantir um processo de cadastro rápido e sem complicações. Estamos aqui para ajudar em caso de dúvidas.
+              </Text>
+              <FormLeftLast>
+                <SubmitButton type="submit" name="register" value="Have An Account" />
+              </FormLeftLast>
+            </FormLeftContent>
+          </FormLeft>
 
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <Field name="password" type="password" className="form-control" />
-              <ErrorMessage name="password" component="div" className="alert alert-danger" />
-            </div>
-
-            <div className="form-group">
-              <button type="submit" className="btn btn-primary btn-block" disabled={state.loading}>
-                {state.loading && <span className="spinner-border spinner-border-sm"></span>}
-                <span>Login</span>
-              </button>
-            </div>
-
-            {state.message && (
-              <div className="form-group">
-                <div className="alert alert-danger" role="alert">
-                  {state.message}
-                </div>
-              </div>
-            )}
-          </Form>
-        </Formik>
-      </div>
-    </div>
+          <FormDetail className="col-md-12">
+            <ProfileImg
+              src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+              alt="profile-img"
+            />
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={handleLogin}
+            >
+              {({ errors, touched, isSubmitting }) => (
+                <StyledForm>
+                  <FormGroup>
+                    <FormLabel htmlFor="email">E-mail</FormLabel>
+                    <FormField
+                      name="email"
+                      type="text"
+                      className={`form-control ${touched.email && errors.email ? "is-invalid" : ""}`}
+                    />
+                    <StyledErrorMessage name="email" component="div" />
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel htmlFor="password">Password</FormLabel>
+                    <FormField
+                      name="password"
+                      type="password"
+                      className={`form-control ${touched.password && errors.password ? "is-invalid" : ""}`}
+                    />
+                    <StyledErrorMessage name="password" component="div" />
+                  </FormGroup>
+                  <StyledButton type="submit" disabled={isSubmitting || loading}>
+                    {loading ? "Loading..." : "Login"}
+                  </StyledButton>
+                </StyledForm>
+              )}
+            </Formik>
+            {message && <Message>{message}</Message>}
+          </FormDetail>
+        </FormV4Content>
+      </PageContent>
+    </>
   );
 };
 
